@@ -40,7 +40,6 @@ endif
 
 LOCAL_FSTAB := $(LOCAL_PATH)/fstab.flounder
 
-
 TARGET_RECOVERY_FSTAB = $(LOCAL_FSTAB)
 
 PRODUCT_COPY_FILES := \
@@ -109,8 +108,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/mixer_paths_0.xml:system/etc/mixer_paths_0.xml
 
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/enctune.conf:system/etc/enctune.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
@@ -154,7 +157,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
-ifneq ($(filter volantis volantisf, $(TARGET_PRODUCT)),)
+ifneq ($(filter flounder flounder64 ,$(TARGET_DEVICE)),)
 # Wifi-Only overlays.
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/wifi_only_overlay \
@@ -185,7 +188,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fsck.f2fs mkfs.f2fs
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     ro.opengles.version=196609 \
     ro.sf.lcd_density=320 \
@@ -211,8 +214,8 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 # set default USB configuration
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
-    ro.adb.secure=1
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
 
 # for off charging mode
 PRODUCT_PACKAGES += \
