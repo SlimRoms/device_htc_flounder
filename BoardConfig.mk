@@ -42,6 +42,10 @@ TARGET_BOARD_PLATFORM := tegra132
 TARGET_BOARD_INFO_FILE := device/htc/flounder/board-info.txt
 
 TARGET_BOOTLOADER_BOARD_NAME := flounder
+TARGET_KERNEL_CONFIG := flounder_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/flounder
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
