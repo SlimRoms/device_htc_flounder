@@ -1,4 +1,4 @@
-$(call inherit-product, device/htc/flounder/aosp_flounder.mk)
+$(call inherit-product, device/htc/flounder/full_flounder.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
