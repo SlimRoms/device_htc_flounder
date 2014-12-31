@@ -27,4 +27,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/lte_only_overlay
+    $(LOCAL_PATH)/overlays/lte_only_overlay

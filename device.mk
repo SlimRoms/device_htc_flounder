@@ -28,24 +28,25 @@ ifeq ($(HOST_OS),linux)
 TARGET_USERIMAGES_USE_F2FS := true
 endif
 
-LOCAL_FSTAB := $(LOCAL_PATH)/fstab.flounder
+LOCAL_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.flounder
 
 TARGET_RECOVERY_FSTAB = $(LOCAL_FSTAB)
 
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/init.flounder.rc:root/init.flounder.rc \
-    $(LOCAL_PATH)/init.flounder.usb.rc:root/init.flounder.usb.rc \
-    $(LOCAL_PATH)/init.recovery.flounder.rc:root/init.recovery.flounder.rc \
-    $(LOCAL_FSTAB):root/fstab.flounder \
-    $(LOCAL_PATH)/ueventd.flounder.rc:root/ueventd.flounder.rc
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.flounder \
+    init.flounder.rc \
+    init.flounder.usb.rc \
+    init.recovery.flounder.rc \
+    ueventd.flounder.rc
 
 # Copy flounder files as flounder64 so that ${ro.hardware} can find them
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.flounder.rc:root/init.flounder64.rc \
-    $(LOCAL_PATH)/init.flounder.usb.rc:root/init.flounder64.usb.rc \
-    $(LOCAL_FSTAB):root/fstab.flounder64 \
-    $(LOCAL_PATH)/init.recovery.flounder.rc:root/init.recovery.flounder64.rc \
-    $(LOCAL_PATH)/ueventd.flounder.rc:root/ueventd.flounder64.rc
+PRODUCT_PACKAGES += \
+    fstab.flounder64 \
+    init.flounder64.rc \
+    init.flounder64.usb.rc \
+    init.recovery.flounder64.rc \
+    ueventd.flounder64.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/touch/touch_fusion.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/touch_fusion.cfg \
@@ -56,7 +57,7 @@ PRODUCT_COPY_FILES += \
 
 # headset keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
+    $(LOCAL_PATH)/configs/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
 
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -90,28 +91,27 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
-    $(LOCAL_PATH)/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
+    $(LOCAL_PATH)/configs/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    $(LOCAL_PATH)/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/mixer_paths_0.xml:system/etc/mixer_paths_0.xml
-
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/mixer_paths_0.xml:system/etc/mixer_paths_0.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/enctune.conf:system/etc/enctune.conf
+    $(LOCAL_PATH)/configs/enctune.conf:system/etc/enctune.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-    $(LOCAL_PATH)/nvcamera.conf:system/etc/nvcamera.conf \
-    $(LOCAL_PATH)/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
-    $(LOCAL_PATH)/bcmdhd_lte.cal:system/etc/wifi/bcmdhd_lte.cal
+    $(LOCAL_PATH)/configs/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    $(LOCAL_PATH)/configs/nvcamera.conf:system/etc/nvcamera.conf \
+    $(LOCAL_PATH)/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
+    $(LOCAL_PATH)/wifi/bcmdhd_lte.cal:system/etc/wifi/bcmdhd_lte.cal
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/bcm/gps.bcm47521.conf:system/etc/gps.bcm47521.conf \
@@ -152,16 +152,18 @@ PRODUCT_CHARACTERISTICS := tablet,nosdcard
 ifneq ($(filter flounder flounder64 ,$(TARGET_DEVICE)),)
 # Wifi-Only overlays.
 DEVICE_PACKAGE_OVERLAYS := \
-    $(LOCAL_PATH)/wifi_only_overlay \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlays/wifi_only_overlay \
+    $(LOCAL_PATH)/overlays/overlay
 else
 DEVICE_PACKAGE_OVERLAYS := \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlays/overlay
 endif
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
+# no bootanim match yet so let's override it.
+TARGET_BOOTANIMATION_NAME := 1080
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
