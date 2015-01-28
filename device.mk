@@ -157,8 +157,6 @@ DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 endif
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # NFC packages
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
