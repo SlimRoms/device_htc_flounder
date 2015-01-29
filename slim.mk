@@ -1,13 +1,15 @@
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2048
+TARGET_SCREEN_WIDTH := 1536
+
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/slim/config/common_full_phone.mk)
+$(call inherit-product, vendor/slim/config/common_full_tablet_wifionly.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/htc/flounder/aosp_flounder.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-slim
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := slim_flounder
