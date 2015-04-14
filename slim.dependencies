@@ -1,0 +1,7 @@
+[
+  {
+    "repository": "SlimRoms/kernel_htc_flounder",
+    "target_path": "kernel/htc/flounder",
+    "branch":      "lp5.1"
+  }
+]
