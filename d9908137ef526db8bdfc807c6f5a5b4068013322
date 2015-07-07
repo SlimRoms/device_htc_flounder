@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_ebc96d5b",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2015-07-07T16:16:33Z",
+      "side": 1,
+      "message": "Deprecated after\n\nhttps://review.slimroms.eu/#/c/5355/\nhttps://review.slimroms.eu/#/c/5398/",
+      "range": {
+        "startLine": 96,
+        "startChar": 24,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "d9908137ef526db8bdfc807c6f5a5b4068013322",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
