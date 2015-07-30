@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_e6f75e8b",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2015-07-30T22:53:31Z",
+      "side": 1,
+      "message": "deprecated",
+      "revId": "7e7edcdd3317005d4d0f6ee9a9c9d508666a1f92",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
