@@ -15,7 +15,7 @@
 #
 
 # Build a separate vendor.img
-TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_VENDOR := system
 
 # Symlink vendor
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
