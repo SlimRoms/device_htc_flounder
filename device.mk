@@ -228,6 +228,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.est_max_time=500 \
     ro.facelock.use_intro_anim=true
 
+# media props
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.flash_off=0 \
+    drm.service.enabled=true \
+    ro.com.widevine.cachesize=16777216
+    
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
