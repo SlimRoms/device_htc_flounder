@@ -107,6 +107,10 @@ on boot
     write /proc/sys/net/core/rmem_max 1048576
     write /proc/sys/net/core/wmem_max 1048576
 
+    # Switch to fiops scheduler and increase readahead buffer to 1024Kb
+    write /sys/block/mmcblk0/queue/scheduler fiops
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
+
 on fs
     mount_all /fstab.flounder
 
