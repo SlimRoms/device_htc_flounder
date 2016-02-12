@@ -117,6 +117,9 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">2</integer>
 
+    <!-- Screen brightness when dozing. -->
+    <integer name="config_screenBrightnessDoze">17</integer>
+
     <!-- Sets the minimum and maximum tilt tolerance for each possible rotation.
          See comments in framework config.xml.
 
@@ -177,6 +180,11 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <bool name="config_ui_enableFadingMarquee">true</bool>
+
+    <!-- Dream of notifications -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
