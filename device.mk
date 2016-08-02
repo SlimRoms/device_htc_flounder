@@ -218,14 +218,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.ril.def.agps.mode=1 \
     persist.tegra.compositor=glcomposer
 
-# Audio effect props
-PRODUCT_PROPERTY_OVERRIDES += \
-    fmas.spkr_6ch=35,20,110 \
-    fmas.spkr_2ch=35,25 \
-    fmas.spkr_angles=10 \
-    fmas.spkr_sgain=0 \
-    media.aac_51_output_enabled=true
-
 # facelock props
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.black_timeout=700 \
