@@ -41,7 +41,7 @@ BUILD_EMULATOR := false
 
 TARGET_NO_BOOTLOADER := true
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=flounder
+BOARD_KERNEL_CMDLINE += androidboot.hardware=flounder androidboot.selinux=permissive
 
 TARGET_NO_RADIOIMAGE := true
 
