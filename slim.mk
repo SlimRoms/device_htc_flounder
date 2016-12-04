@@ -5,7 +5,7 @@ PRODUCT_RELEASE_NAME := flounder
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1536
 
-# Inherit some common CM stuff.
+# Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 # Inherit device configuration
