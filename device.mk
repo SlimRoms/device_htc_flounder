@@ -303,6 +303,10 @@ ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
 
+# Vendor seccomp policy files for media components:
+PRODUCT_COPY_FILES += \
+    device/htc/flounder/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
 ifeq ($(TARGET_BUILD_VARIANT),user)
 
 PRODUCT_COPY_FILES += device/htc/flounder/fstab-verity.flounder:root/fstab.flounder
