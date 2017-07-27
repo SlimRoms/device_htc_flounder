@@ -31,3 +31,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/lte_only_overlay
+
+# Call for flounder_lte vendor if it exists
+$(call inherit-product-if-exists, vendor/htc/flounder_lte/device-vendor.mk)
