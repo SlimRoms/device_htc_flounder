@@ -19,7 +19,8 @@
 # Everything in this directory will become public
 
 PRODUCT_PACKAGES += \
-    CarrierConfig
+    CarrierConfig \
+    rild
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
