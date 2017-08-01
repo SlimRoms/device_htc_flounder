@@ -19,7 +19,8 @@
 # Everything in this directory will become public
 
 PRODUCT_PACKAGES += \
-    CarrierConfig
+    CarrierConfig \
+    rild
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
@@ -31,6 +32,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/lte_only_overlay
+
+# Inherit common device configuration
+$(call inherit-product, device/htc/flounder/aosp_flounder.mk)
 
 # Call for flounder_lte vendor if it exists
 $(call inherit-product-if-exists, vendor/htc/flounder_lte/device-vendor.mk)
