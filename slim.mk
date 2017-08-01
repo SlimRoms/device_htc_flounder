@@ -11,7 +11,8 @@ $(call inherit-product, vendor/slim/config/common.mk)
 # Inherit device configuration
 $(call inherit-product, device/htc/flounder/aosp_flounder.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-slim
+# Wifi only overlays
+DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/wifi_only_overlay
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := slim_flounder
