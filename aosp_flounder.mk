@@ -25,6 +25,11 @@
 PRODUCT_PACKAGES += \
         Launcher3
 
+# Telephony bits
+PRODUCT_PACKAGES += \
+    CarrierConfig \
+    rild
+
 PRODUCT_PROPERTY_OVERRIDES := \
         net.dns1=8.8.8.8 \
         net.dns2=8.8.4.4
