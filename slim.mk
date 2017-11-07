@@ -20,5 +20,7 @@ PRODUCT_MODEL := Nexus 9
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=flounder \
-    BUILD_FINGERPRINT=google/volantis/flounder:7.1.1/N9F27M/4333998:user/release-keys \
     PRIVATE_BUILD_DESC="volantis-user 7.1.1 N9F27M 4333998 release-keys"
+
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := google/volantis/flounder:7.1.1/N9F27M/4333998:user/release-keys
