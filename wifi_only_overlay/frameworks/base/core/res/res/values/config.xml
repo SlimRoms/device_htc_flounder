@@ -67,8 +67,4 @@
         <item>"7,1"</item>
         <item>"9,1"</item>
     </string-array>
-
-    <!-- This device does not allow sms service. -->
-    <bool name="config_sms_capable">false</bool>
-
 </resources>
