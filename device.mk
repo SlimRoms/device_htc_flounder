@@ -360,11 +360,8 @@ endif
 PRODUCT_COPY_FILES += \
     device/htc/flounder/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
+# Verity dependencies (only on user builds for Slim)
 ifeq ($(TARGET_BUILD_VARIANT),user)
-
-PRODUCT_COPY_FILES += device/htc/flounder/fstab-verity.flounder:root/fstab.flounder
-
-# add verity dependencies
 $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_SUPPORTS_BOOT_SIGNER := false
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/sdhci-tegra.3/by-name/APP
