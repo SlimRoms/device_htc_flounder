@@ -43,6 +43,9 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=flounder
 
+# Set permissive for now
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := tegra132
